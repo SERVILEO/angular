@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Producto } from '../../producto';
+import { ProductoService } from '../../producto.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  data: Producto[];
+  current_prod: Producto;
+  query:string = '';
+  constructor(private service:ProductoService) {
+  this.data=[];
+   }
+  
 
-  constructor() { }
-
-  ngOnInit(): void {
+   ngOnInit() {
+    this.service.read(this.query).subscribe(res =>{
+      this.data = res.json();
+      this.current_prod = new Producto();
+    });
   }
 
 }

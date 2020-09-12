@@ -2,63 +2,58 @@
 <app-header></app-header>
 
 <section class="hero">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="hero__categories">
-                    <div class="hero__categories__all">
-                        <i class="fa fa-bars"></i>
-                        <span>Categorías </span>
-                    </div>
-                    <ul>
-                        <li><a  href="#">Abarrotes</a></li>
-                        <li><a href="#">Frutas</a></li>
-                        <li><a href="#">Vegetables</a></li> 
-                        <li><a href="#">Aguas y Bebidas</a></li>
-                        <li><a href="#">Galletas y Golosinas</a></li>
-                        <li><a href="#">Panadería</a></li>
-                        <li><a href="#">Lácteos</a></li>
-                        <li><a href="#">Carnes y Embutidos</a></li>
-                        <li><a href="#">Pescados y Mariscos</a></li>                      
-                        <li><a href="#">Lavandería</a></li>
-                        <li><a href="#">Higiene Personal</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="hero__search">
-                    <div class="hero__search__form">
-                        <form action="#">
-                            <div class="hero__search__categories">
-                                Todas las Categorías
-                                <span class="arrow_carrot-down"></span>
-                            </div>
-                            <input type="text" placeholder="¿Qué estas buscando?" (keyup)="searchProduct(inputTexto.value)" #inputTexto>
-                            <button (click)="searchProduct(inputTexto.value)" type="button" class="site-btn">Buscar</button>
-                        </form>
-                    </div>
-                    <div class="hero__search__phone">
-                        <div class="hero__search__phone__icon">
-                            <i class="fa fa-phone"></i>
-                        </div>
-                        <div class="hero__search__phone__text">
-                            <h5>+51 947804528</h5>
-                            <span>Atención 24/7 horas</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
-                    <div class="hero__text">
-                        <span>Frutas y Verduras Frescas</span>
-                        <h2>Frutas <br />100% Organicas</h2>
-                        <p></p>
-                        <a href="#" class="primary-btn">Comprar</a>
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="hero__categories">
+          <div class="hero__categories__all">
+            <i class="fa fa-bars"></i>
+            <span>Categorías </span>
+          </div>
+          <ul>
+            <li><a href="#">Abarrotes</a></li>
+            <li><a href="#">Frutas</a></li>
+            <li><a href="#">Vegetables</a></li>
+            <li><a href="#">Aguas y Bebidas</a></li>
+            <li><a href="#">Galletas y Golosinas</a></li>
+            <li><a href="#">Panadería</a></li>
+            <li><a href="#">Lácteos</a></li>
+            <li><a href="#">Carnes y Embutidos</a></li>
+            <li><a href="#">Pescados y Mariscos</a></li>
+            <li><a href="#">Lavandería</a></li>
+            <li><a href="#">Higiene Personal</a></li>
+          </ul>
         </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="row hero__search">
+          <div class=" d-flex">
+            <p class="col-6"><b> Todas las Categorías </b></p>
+            <input class="form-control col-8 mr-3" type="buscar" placeholder="¿Qué estas buscando?" [(ngModel)]="query">
+            <button class="site-btn col-3 p-1" (click)="ngOnInit()">Buscar</button>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+          <div class="col-lg-3 " *ngFor="let row of data">
+            <div class="card">
+              <img class="card-img-top" src="{{ row.p_UrlImagen }}" alt="Card image cap">
+              <div class="card-body">
+                <h4 class="h6">{{ row.p_Nombre }}</h4>
+                <p class="card-text">S./ {{ row.p_Precio }}</p>
+              </div>
+              <a href="#" class="btn btn-primary">Agregar</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 <!-- Hero Section End -->
+
+
 
 <app-footer></app-footer>
