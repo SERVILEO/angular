@@ -1,30 +1,41 @@
-<!-- Hero Section Begin -->
-<app-header></app-header>
-
-<section class="hero">
   <div class="container">
     <div class="row">
       <div class="col-lg-3">
-        <div class="hero__categories">
-          <div class="hero__categories__all">
-            <i class="fa fa-bars"></i>
-            <span>Categorías </span>
+        <div class="accordion" id="accordionExample">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h2 class="mb-0 hero__categories__all">
+                <button class="btn btn-link btn-block text-left " type="button" data-toggle="collapse"
+                data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <span>Categorías</span>
+              </button>
+              </h2>
+            </div>
+  
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                <div class="hero__categories">
+                  <ul>
+                    <li><a href="#">Abarrotes</a></li>
+                    <li><a href="#">Frutas</a></li>
+                    <li><a href="#">Vegetables</a></li>
+                    <li><a href="#">Aguas y Bebidas</a></li>
+                    <li><a href="#">Galletas y Golosinas</a></li>
+                    <li><a href="#">Panadería</a></li>
+                    <li><a href="#">Lácteos</a></li>
+                    <li><a href="#">Carnes y Embutidos</a></li>
+                    <li><a href="#">Pescados y Mariscos</a></li>
+                    <li><a href="#">Lavandería</a></li>
+                    <li><a href="#">Higiene Personal</a></li>
+                  </ul>
+                </div>
+  
+              </div>
+            </div>
           </div>
-          <ul>
-            <li><a href="#">Abarrotes</a></li>
-            <li><a href="#">Frutas</a></li>
-            <li><a href="#">Vegetables</a></li>
-            <li><a href="#">Aguas y Bebidas</a></li>
-            <li><a href="#">Galletas y Golosinas</a></li>
-            <li><a href="#">Panadería</a></li>
-            <li><a href="#">Lácteos</a></li>
-            <li><a href="#">Carnes y Embutidos</a></li>
-            <li><a href="#">Pescados y Mariscos</a></li>
-            <li><a href="#">Lavandería</a></li>
-            <li><a href="#">Higiene Personal</a></li>
-          </ul>
         </div>
       </div>
+
       <div class="col-lg-9">
         <div class="row hero__search">
           <div class=" d-flex">
@@ -35,7 +46,7 @@
         </div>
 
         <br>
-
+        
         <div class="row">
           <div class="col-lg-3 " *ngFor="let row of data">
             <div class="card">
@@ -44,16 +55,15 @@
                 <h4 class="h6">{{ row.p_Nombre }}</h4>
                 <p class="card-text">S./ {{ row.p_Precio }}</p>
               </div>
-              <a href="#" class="btn btn-primary">Agregar</a>
+              <map-component></map-component><map-component [data2]="data2"></map-component>
+
+              <a href="productos/detalle" class="btn btn-primary">Agregar</a>  
+              
+              
+              
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</section>
-<!-- Hero Section End -->
-
-
-
-<app-footer></app-footer>
